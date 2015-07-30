@@ -7,6 +7,7 @@ sbu=function(){ // ini
 sbu.div = document.getElementById("sbuBoxDiv")
 
 sbu.pick=function(){ // File Picker
+    $('<h4><li> Load data</li></h4>').appendTo(sbu.div)
     $('<div id="box-select" data-link-type="direct" data-multiselect="YOUR_MULTISELECT" data-client-id="a53f4scaqiknm468ae9v4w0irxi8a0o3"></div>').appendTo(sbu.div)
     $.getScript("https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.core.min.js")
     $.getScript("https://app.box.com/js/static/select.js").then(function(){
@@ -52,6 +53,9 @@ sbu.readxlsx=function(url,fun){
 
 sbu.pickRead=function(response){ // Read file picked 
     x = response
+    $('<h4><li> Analysis</li>...</h4>').appendTo(sbu.div)
+    // sbu.readxlsx(x[1].url,function(x){lala=x,console.log('done')})
+    // $.get(x[0].url).then(function(x){lala = x;console.log('done')})
 }
 
 
