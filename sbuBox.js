@@ -53,6 +53,7 @@ sbu.readxlsx=function(url,fun){
 
 sbu.pickRead=function(response){ // Read file picked 
     x = response
+    $('<pre>loaded: <ol>'+x.map(function(xi){return '<li>'+xi.name+'</li>'}).join('')+'</ol>This looks like NSQIP data provided by Dan Roberts.</pre>').appendTo(sbu.div)
     $('<h4><li> Analysis</li>...</h4>').appendTo(sbu.div)
     // sbu.readxlsx(x[1].url,function(x){lala=x,console.log('done')})
     // $.get(x[0].url).then(function(x){lala = x;console.log('done')})
