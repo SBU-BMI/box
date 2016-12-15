@@ -1,14 +1,14 @@
 console.log('sbuBox.js loaded')
 
-sbu=function(){ // ini
-    sbu.pick();
+sbuBox=function(){ // ini
+    sbuBox.pick();
 }
 
-sbu.div = document.getElementById("sbuBoxDiv")
+sbuBox.div = document.getElementById("sbuBoxDiv")
 
-sbu.pick=function(){ // File Picker
-    $('<h4><li> Load data</li></h4>').appendTo(sbu.div)
-    $('<div id="box-select" data-link-type="direct" data-multiselect="YOUR_MULTISELECT" data-client-id="a53f4scaqiknm468ae9v4w0irxi8a0o3"></div>').appendTo(sbu.div)
+sbuBox.pick=function(){ // File Picker
+    $('<h4><li> Load data</li></h4>').appendTo(sbuBox.div)
+    $('<div id="box-select" data-link-type="direct" data-multiselect="YOUR_MULTISELECT" data-client-id="a53f4scaqiknm468ae9v4w0irxi8a0o3"></div>').appendTo(sbuBox.div)
     $.getScript("https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.core.min.js")
     $.getScript("https://app.box.com/js/static/select.js").then(function(){
         $(document).ready(function(){
@@ -16,7 +16,7 @@ sbu.pick=function(){ // File Picker
             // Register a success callback handler
             boxSelect.success(function(response) {
                 //console.log(response);
-                sbu.pickRead(response)
+                sbuBox.pickRead(response)
             });
             // Register a cancel callback handler
             boxSelect.cancel(function() {
@@ -27,7 +27,7 @@ sbu.pick=function(){ // File Picker
     4
 }
 
-sbu.readxlsx=function(url,fun){
+sbuBox.readxlsx=function(url,fun){
     var oReq = new XMLHttpRequest();
     oReq.open("GET", url, true);
     oReq.responseType = "arraybuffer";
@@ -51,13 +51,13 @@ sbu.readxlsx=function(url,fun){
     oReq.send();
 }
 
-sbu.pickRead=function(response){ // Read file picked 
+sbuBox.pickRead=function(response){ // Read file picked 
     x = response
-    $('<pre>loaded: <ol>'+x.map(function(xi){return '<li>'+xi.name+'</li>'}).join('')+'</ol>We can read and analyse this data ... should we ?</pre>').appendTo(sbu.div)
-    $('<h4><li> Analysis</li>...</h4>').appendTo(sbu.div)
+    $('<pre>loaded: <ol>'+x.map(function(xi){return '<li>'+xi.name+'</li>'}).join('')+'</ol>We can read and analyse this data ... should we ?</pre>').appendTo(sbuBox.div)
+    $('<h4><li> Analysis</li>...</h4>').appendTo(sbuBox.div)
     // sbu.readxlsx(x[1].url,function(x){lala=x,console.log('done')})
     // $.get(x[0].url).then(function(x){lala = x;console.log('done')})
 }
 
 
-sbu() // ini
+sbuBox() // ini
