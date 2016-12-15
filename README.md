@@ -1,4 +1,4 @@
-# box
+# sbuBox
 [Box.com](http://box.com) Apps, live at http://sbu-bmi.github.io/box !
 ___
 
